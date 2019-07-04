@@ -51,7 +51,8 @@ public class MainActivity extends Activity {
         final Spinner partKeySpinner = new Spinner(this);
         ArrayAdapter<String> partKeysAdapter = new ArrayAdapter<>(this, R.layout.part_key_adapter);
         partKeysAdapter.addAll(
-                Constant.PART_KEY_PLUGIN_MAIN_APP
+                Constant.PART_KEY_PLUGIN_MAIN_APP,
+                Constant.PART_KEY_PLUGIN_SHEEP_HOST_APP
         );
         partKeySpinner.setAdapter(partKeysAdapter);
 
@@ -68,6 +69,11 @@ public class MainActivity extends Activity {
                 switch (partKey) {
                     case Constant.PART_KEY_PLUGIN_MAIN_APP:
                         intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.tencent.shadow.sample.plugin.app.lib.gallery.splash.SplashActivity");
+                        break;
+                    case Constant.PART_KEY_PLUGIN_SHEEP_HOST_APP:
+                        intent.putExtra(Constant.KEY_ACTIVITY_CLASSNAME, "com.sheepyang1993.shadowhostdemo.MainActivity");
+                        break;
+                    default:
                         break;
                 }
                 startActivity(intent);
