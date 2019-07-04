@@ -28,5 +28,6 @@ public interface WhiteList {
             {
                     "com.tencent.host.shadow",
                     "com.tencent.shadow.test.lib.constant",
+                    "com.sheepyang1993.shadowhostdemo",
             };
 }

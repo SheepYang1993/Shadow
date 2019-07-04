@@ -55,6 +55,7 @@ def includeSample() {
             'sample-app-lib',
             'sample-normal-app',
             'sample-sheep-app',
+            'sample-sheep-plugin',
             'sample-plugin-app'
     project(':sample-constant').projectDir = file('projects/sample/sample-constant')
     project(':sample-host').projectDir = file('projects/sample/sample-host')
@@ -67,4 +68,5 @@ def includeSample() {
     project(':sample-normal-app').projectDir = file('projects/sample/sample-plugin/sample-normal-app')
     project(':sample-plugin-app').projectDir = file('projects/sample/sample-plugin/sample-plugin-app')
     project(':sample-sheep-app').projectDir = file('projects/sample/sample-plugin/sample-sheep-app')
+    project(':sample-sheep-plugin').projectDir = file('projects/sample/sample-plugin/sample-sheep-plugin')
 }
