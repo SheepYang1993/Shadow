@@ -1,8 +1,25 @@
-apply from: "../sample-sheep-app/build.gradle"
+apply plugin: 'com.android.application'
+
 android {
+    compileSdkVersion 28
     defaultConfig {
         applicationId project.SAMPLE_HOST_APP_APPLICATION_ID
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':sample-sheep-app')
 }
 
 buildscript {
@@ -19,50 +36,3 @@ buildscript {
 }
 
 apply plugin: 'com.tencent.shadow.plugin'
-
-
-shadow {
-    transform {
-//        useHostContext = ['abc']
-    }
-
-    packagePlugin {
-        pluginTypes {
-            debug {
-                loaderApkConfig = new Tuple2('sample-loader-debug.apk', ':sample-loader:assembleDebug')
-                runtimeApkConfig = new Tuple2('sample-runtime-debug.apk', ':sample-runtime:assembleDebug')
-                pluginApks {
-                    pluginApk1 {
-                        businessName = 'sample-sheep-plugin'
-                        partKey = 'sample-sheep-plugin'
-                        buildTask = ':sample-sheep-plugin:assembleDebug'
-                        apkName = 'sample-sheep-plugin-debug.apk'
-                        apkPath = 'projects/sample/sample-plugin/sample-sheep-plugin/build/outputs/apk/debug/sample-sheep-plugin-debug.apk'
-                    }
-                }
-            }
-
-            release {
-                loaderApkConfig = new Tuple2('sample-loader-release.apk', ':sample-loader:assembleRelease')
-                runtimeApkConfig = new Tuple2('sample-runtime-release.apk', ':sample-runtime:assembleRelease')
-                pluginApks {
-                    pluginApk1 {
-                        businessName = 'sample-sheep-plugin'
-                        partKey = 'sample-sheep-plugin'
-                        buildTask = ':sample-sheep-plugin:assembleRelease'
-                        apkName = 'sample-sheep-plugin-release.apk'
-                        apkPath = 'projects/sample/sample-plugin/sample-sheep-plugin/build/outputs/apk/release/sample-sheep-plugin-release.apk'
-                    }
-                }
-            }
-        }
-
-        loaderApkProjectPath = 'projects/sample/sample-plugin/sample-loader'
-
-        runtimeApkProjectPath = 'projects/sample/sample-plugin/sample-runtime'
-
-        version = 4
-        compactVersion = [1, 2, 3]
-        uuidNickName = "1.1.5"
-    }
-}

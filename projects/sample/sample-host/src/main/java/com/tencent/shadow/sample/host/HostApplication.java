@@ -39,7 +39,6 @@ public class HostApplication extends Application {
         super.onCreate();
         sApp = this;
 
-        detectNonSdkApiUsageOnAndroidP();
 
         LoggerFactory.setILoggerFactory(new AndroidLogLoggerFactory());
 

@@ -39,6 +39,13 @@ shadow {
                         apkName = 'sample-plugin-app-debug.apk'
                         apkPath = 'projects/sample/sample-plugin/sample-plugin-app/build/outputs/apk/debug/sample-plugin-app-debug.apk'
                     }
+                    pluginApk2 {
+                        businessName = 'sample-sheep-plugin'
+                        partKey = 'sample-sheep-plugin'
+                        buildTask = ':sample-sheep-plugin:assembleDebug'
+                        apkName = 'sample-sheep-plugin-debug.apk'
+                        apkPath = 'projects/sample/sample-plugin/sample-sheep-plugin/build/outputs/apk/debug/sample-sheep-plugin-debug.apk'
+                    }
                 }
             }
 
@@ -52,6 +59,13 @@ shadow {
                         buildTask = ':sample-plugin-app:assembleRelease'
                         apkName = 'sample-plugin-app-release.apk'
                         apkPath = 'projects/sample/sample-plugin/sample-plugin-app/build/outputs/apk/release/sample-plugin-app-release.apk'
+                    }
+                    pluginApk2 {
+                        businessName = 'sample-sheep-plugin'
+                        partKey = 'sample-sheep-plugin'
+                        buildTask = ':sample-sheep-plugin:assembleRelease'
+                        apkName = 'sample-sheep-plugin-release.apk'
+                        apkPath = 'projects/sample/sample-plugin/sample-sheep-plugin/build/outputs/apk/release/sample-sheep-plugin-release.apk'
                     }
                 }
             }
