@@ -52,12 +52,17 @@ public class HostApplication extends Application {
 
     }
 
+    /**
+     * 对9.0以上机型使用严格模式
+     */
     private static void detectNonSdkApiUsageOnAndroidP() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
             return;
         }
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        //检查整个过程
         builder.penaltyDeath();
+        //检测非Android SDK接口违规的调用, 在非Android SDK 接口被调用时会收到回调
         builder.detectNonSdkApiUsage();
         StrictMode.setVmPolicy(builder.build());
     }
